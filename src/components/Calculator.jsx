@@ -82,7 +82,6 @@ export default function Calculator({
                         className={style ? "buttonOperator" : "buttonOperator-dark-equivalent"}
                         onClick={getResult}>=</button>
 
-
                 </div>
 
                 <div className="operators">
@@ -111,13 +110,7 @@ export default function Calculator({
                         onClick={erase}>C</button>
 
                 </div>
-
             </div>
-
-
-
-
-
         </div>
     );
 }

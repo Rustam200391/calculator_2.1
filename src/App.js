@@ -6,13 +6,13 @@ export default function App() {
   const [style, setStyle] = React.useState(false);
   const [cleaner, setCleaner] = React.useState(false);
   const [check, setCheck] = React.useState("");
-  
-  let calCulatorInput = 0;
-  let result =0;
 
-  function getNumByKeyBoard(event){
-    
-    if(cleaner === true){
+  let calCulatorInput = 0;
+  let result = 0;
+
+  function getNumByKeyBoard(event) {
+
+    if (cleaner === true) {
       document.getElementById("screen").value = ""
       setCleaner(false)
     }
@@ -21,7 +21,7 @@ export default function App() {
     calCulatorInput = document.getElementById("screen").value
   }
 
-  function getOperatorByKeyBoard(event){
+  function getOperatorByKeyBoard(event) {
     document.getElementById("screen").value += event.target.value
     calCulatorInput = document.getElementById("screen").value
     document.getElementById("screen").focus()
@@ -29,46 +29,46 @@ export default function App() {
     setCheck(calCulatorInput)
   }
 
-  function getNumByScreen(event){
+  function getNumByScreen(event) {
     calCulatorInput += event.target.value
   }
 
-  function getResult(){
+  function getResult() {
     document.getElementById("screen").focus()
 
-    try{
+    try {
       result = (eval(calCulatorInput))
-      
-      if (result === undefined){
+
+      if (result === undefined) {
         result = check
 
-        if(result !== result){
+        if (result !== result) {
           document.getElementById("screen").value = result
           setCleaner(false)
         }
 
       } else {
-          document.getElementById("screen").value = result
-          setCleaner(true)
+        document.getElementById("screen").value = result
+        setCleaner(true)
       }
     }
 
-    catch{
+    catch {
       document.getElementById("screen").value = "error"
       document.getElementById("screen").setAttribute("class", "error")
-      
-      setTimeout(()=> {
+
+      setTimeout(() => {
         document.getElementById("screen").setAttribute("class", "display")
         document.getElementById("screen").value = calCulatorInput
-      },1000)
+      }, 1000)
     }
   }
 
-  function calculatorStyle(){
+  function calculatorStyle() {
     setStyle(!style)
   }
 
-  function clear(){
+  function clear() {
     document.getElementById("screen").focus()
     document.getElementById("screen").value = ""
     calCulatorInput = ""
@@ -76,9 +76,9 @@ export default function App() {
     setCheck(0)
   }
 
-  function erase(){
+  function erase() {
     document.getElementById("screen").focus()
-    document.getElementById("screen").value = document.getElementById("screen").value.slice(0,-1)
+    document.getElementById("screen").value = document.getElementById("screen").value.slice(0, -1)
   }
 
   return (
